@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/orenJim/algorithmLibrary/issues"
   },
-  "homepage": "https://github.com/orenJim/algorithmLibrary#readme"
+  "homepage": "https://github.com/orenJim/algorithmLibrary#readme",
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  }
 }
