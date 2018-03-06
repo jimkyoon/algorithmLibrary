@@ -2,17 +2,17 @@
 // example: input is "Hello World" should be "Ifmmp XpsmE"
 
 // still needs work
-function letterChange(str){
-  var result = "";
-  for(var i = 0; i < str.length; i++){
-    var current = str[i];
-    if(current == 'z'){
+function letterChange(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i += 1) {
+    let current = str[i];
+    if (current === 'z') {
       current = 'a';
     }
-    else if(str.charCodeAt(i) >= 'a'.charCodeAt(0) && str.charCodeAt(i) <= 'z'.charCodeAt(0)){
-      current = String.fromCharCode(str.charCodeAt(i)+1);
+    else if (str.charCodeAt(i) >= 'a'.charCodeAt(0) && str.charCodeAt(i) <= 'z'.charCodeAt(0)) {
+      current = String.fromCharCode(str.charCodeAt(i) + 1);
     }
-    if(current == 'a' || current == 'e' || current == 'i' || current == 'o' || current == 'u'){
+    if (current === 'a' || current === 'e' || current === 'i' || current === 'o' || current === 'u') {
       current = current.toUpperCase();
     }
     result += current;
@@ -20,4 +20,4 @@ function letterChange(str){
   return result;
 }
 
-console.log("Hello World");
+console.log(letterChange("Hello World"));

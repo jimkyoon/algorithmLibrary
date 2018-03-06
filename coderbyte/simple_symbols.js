@@ -2,21 +2,21 @@
 // example: input is "=====+a+======" the result should be true
 
 // needs work
-function simpleSymbols(str){
+function simpleSymbols(str) {
   let detector;
-  for(let i = 0; i < str.length; i++){
-    if(str[0] !== '+' || str[0] !== '='){
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[0] !== '+' || str[0] !== '=') {
       detector = false;
     }
-    else if(str[i].match(/[a-z] && [0-9]/i) && str[i-1] === '+' && str[i+1] === '+'){
+    else if (str[i].match(/[a-z] && [0-9]/i) && str[i - 1] === '+' && str[i + 1] === '+') {
       detector = true;
     }
-    else{
+    else {
       detector = false;
     }
   }
   return detector;
 }
 
-console.log(simpleSymbols("=====+a+======"));
+console.log(simpleSymbols('=====+a+======'));
 // result should be true

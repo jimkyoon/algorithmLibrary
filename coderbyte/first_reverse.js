@@ -9,15 +9,13 @@
 //   return newStr;
 // }
 
-console.log(firstReverse("Hello World!"));
-// result should be "!dlorW olleH"
-
-
-
 // version 2 (improved)
 // using methods instead of for loops
-function firstReverse(str){
-  let newStr = str.split('');
+function firstReverse(str) {
+  const newStr = str.split('');
   newStr.reverse();
   return newStr.join('');
 }
+
+console.log(firstReverse('Hello World!'));
+// result should be '!dlorW olleH'
