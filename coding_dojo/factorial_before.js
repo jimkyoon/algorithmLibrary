@@ -1,7 +1,7 @@
 // Create a factorial function without recursion
-function iFactorial(num){
+function iFactorial(num) {
   let result = 1;
-  for(let i = 1; i < num+1; i++){
+  for (let i = 1; i < num + 1; i += 1) {
     result *= i;
   }
   return result;

@@ -1,7 +1,7 @@
 // Fibonacci sequence without recursion
-function iFibonacci(num){
-  let fib = [0, 1];
-  for(let i = 0; i < num; i++){
+function iFibonacci(num) {
+  const fib = [0, 1];
+  for (let i = 0; i < num; i += 1) {
     fib.push(fib[0] + fib[1]);
     fib.shift();
   }
