@@ -1,4 +1,4 @@
-// Level 4 of Coding Dojo AlgoApp
+// Level 5 of Coding Dojo AlgoApp
 
 // Challenge 1
 for (var i = 0; i < 10; i++) {
