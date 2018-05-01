@@ -108,7 +108,7 @@ function squareVal(array) {
   for (let i = 0; i < array.length; i += 1) {
     arr.push(array[i] * array[i]);
   }
-  return array;
+  return arr;
 }
 
 squareVal([1, 2, 3]);
@@ -125,7 +125,7 @@ function noNeg(array) {
       newArr.push(array[i]);
     }
   }
-  return array;
+  return newArr;
 }
 
 noNeg([-1, 2, -3, 4]);
