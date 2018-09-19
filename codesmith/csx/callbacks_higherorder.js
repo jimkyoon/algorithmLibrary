@@ -41,3 +41,31 @@ console.log(map([3,4,5], subtractTwo)); // should log: [ 1, 2, 3 ]
 
 // forEach
 // create a function forEach that takes two inputs, array and callback, and invokes the callback once for each element of the array. forEach does not return anything. then rebuild map, but instead of using for loop, use forEach.
+// ADD CODE HERE
+function forEach (array, callback) {
+	for (let i = 0; i < array.length; i += 1) {
+    callback(array[i], i, array);
+  }
+};
+
+function map (array, callback) {
+  let output = [];
+  function changes (value) {
+    output.push(callback(value));
+  }
+  forEach (array, changes);
+	return output;
+};
+
+
+
+// Uncomment these to check your work!
+console.log(typeof forEach); // should log: 'function'
+forEach(['a','b','c'], i => console.log(i)); // should log: 'a', 'b', 'c'
+console.log(typeof map); // should log: 'function'
+console.log(map([3,4,5], n => n - 2)); // should log: [1, 2, 3]
+
+
+
+// REDUCE
+// construct your own reduce function that takes in an array, callback, and initial value
