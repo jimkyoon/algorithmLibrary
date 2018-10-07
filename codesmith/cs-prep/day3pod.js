@@ -43,6 +43,15 @@ console.log(addingToX(2));  // 3
 console.log(addingToX(3));  // 6
 console.log(addingToX(10)); // 55
 
+
+
+// Instructor examples
+function addingToX (num) {
+  return (num * (num + 1) / 2);
+}
+
+
+
 //Challenge Part 2
 
 function arrayToX(num) {
@@ -124,4 +133,56 @@ function modemean(array) {
   else {
     return false;
   }
+}
+
+// instructor's version
+
+function modemean (array) {
+  // mode
+  const tallys = array.reduce((acc, num) => {
+    if (acc[num]) {
+      acc[num] += 1;
+    }
+    else {
+      acc[num] = 1;
+    }
+    return acc;
+  }, {});
+
+  Object.keys(tallys).reduce((acc, num) => {
+    if (!tallys[acc]) {
+      acc = num;
+    }
+    if (tallys[n] > tallys[acc]) {
+      acc = num;
+    }
+  }, -Infinity);
+
+  // mean
+  const mean = Math.floor(array.reduce((acc, num) => acc + num) / array.length);
+
+  return mean === mode;
+}
+
+// another version
+
+const modeMean2 = (arr) => {
+  const mathObject = {
+    mode: -Infinity,
+    sum: 0
+  }
+  arr.reduce((acc, num) => {
+    acc.sum += num;
+    if (!acc[num]) {
+      acc[num] = 1;
+    }
+    else {
+      acc[num] += 1;
+    }
+    if (acc[num] > acc[acc[mode]]) {
+      acc.mode = num;
+    }
+    return acc;
+  }, mathObject);
+  return mathObject.mode === math.floor(mathObject.sum / arr.length);
 }
