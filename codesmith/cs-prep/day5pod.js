@@ -39,7 +39,61 @@ function twoSumTests() {
 
 twoSumTests() // uncomment to test
 
+// instructors method
 
+// nested loop with includes
+const twoSumSad = (arr, target) => {
+  for (let i = 0; i < arr.length; i += 1) {
+    const complement = target - arr[i];
+    if (arr.includes(complement)) return true;
+  }
+  return false;
+}
+
+// using pointers and sorting
+const twoSumPointSort = (arr, target) => {
+  arr.sort((a, b) => a - b);
+  let low = 0;
+  let high = arr.length - 1;
+  while (low < high) {
+    const currentSum = arr[low] + arr[high];
+    if (currentSum === target) {
+      return true;
+    }
+    else if (currentSum < target) {
+      low += 1;
+    }
+    else {
+      high -= 1;
+    }
+  }
+  return false;
+}
+
+// trying to use object (hash map)
+const twoSumObject = (arr, target) => {
+  const hashMap = {};
+  for (let i = 0; i < arr.length; i += 1) {
+    const current = arr[i];
+    const complement = target - current;
+    if (hashMap[complement] !== undefined) {
+      return true;
+    }
+    hashMap[current] = current;
+  }
+  return false;
+}
+
+// set has method
+const twoSumSet = (arr, target) => {
+  const values = new Set();
+  for (let i = 0; i < arr.length; i += 1) {
+    const comp = target - arr[i];
+    if (values.has(comp)) return true;
+    values.add(arr[i]);
+  }
+  return false;
+}
 
 
 // Advanced
@@ -96,3 +150,37 @@ function exclusiveSumTests() {
 }
 
 exclusiveSumTests() // uncomment to test
+
+// instructor's method
+const exclusiveSumQuick = arr => {
+  const sum = arr.reduce(acc, num) => acc + num);
+  return arr.map(num => sum - num);
+}
+
+// with forloop
+const exclusiveSumForLoop = arr => {
+  let total = 0;
+  for (let i = 0; i < arr.length; i += 1) {
+    total += arr[i];
+  }
+  const output = [];
+  for (let i = 0; i < arr.length; i += 1) {
+    output.push(total - arr[i]);
+  }
+  return output;
+}
+
+// product or sum
+const exclusiveSumoOrProduct = (arr, operator) => {
+  if (operator !== '+' && operator !== '*') {
+    return 'please enter "+" or "*"';
+  }
+  else if (operator === '+') {
+    const sum = arr.reduce((acc, num) => acc, num);
+    return arr.map(x => sum - x);
+  }
+  else {
+    const product = arr.reduce((acc, num) => acc * num);
+    return arr.map(x => product / x);
+  }
+}
