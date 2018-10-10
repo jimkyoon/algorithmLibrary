@@ -1,18 +1,26 @@
-// anything you can do iteratively, you can do recursively
-// declarative: you tell it what to do
-// imperative: tell it how to do it
+// CS Prep Day 5
 
-// useful for trees when you dont know how long it is
+// Recursion
+// Recursion is an uncommon idea in the real world. We don’t come across it very often and for this reason it can be difficult to wrap our heads around it.
 
-// tail call opitimization
-// trampoline
+// What is it?
+// In programming, a function is considered recursive if it calls itself during execution.
 
-// Challenges
+// What does recursion need?
+// A base case to be met; something that will end the execution. The calling of itself.
+
+// Why is recursion helpful?
+// Often recursive function are more expressive; they closer resemble how someone would describe a solution in english.
+
+
+
 ////////////////////////////
 //     Challenge 1
 ////////////////////////////
 
+// Repeater
 
+// Modify the function so that it returns a string containing the input character repeated 5 times Use recursion!
 
 function repeater(char, n = 5, string = '') {
   let counter = n;
@@ -30,10 +38,14 @@ console.log(repeater('g')); // -> 'ggggg'
 console.log(repeater('j'));// -> 'jjjjj'
 
 
+
 ////////////////////////////
 //     Challenge 2
 ////////////////////////////
 
+// Is Even
+
+// Modify the function so that it returns true if a number is even (and false if it's not) assume input will be a positive integer Use recursion!
 
 function isEven(n) {
   let number = n
@@ -68,6 +80,13 @@ console.log(isEven(10)); // -> true
 //     Challenge 3
 ////////////////////////////
 
+// Factorial
+
+// Modify the function so that it returns the factorial of an input number Use recursion!
+
+// The factorial of n is the product of all numbers between 1 and n
+
+// Ex: 5! = 5 * 4 * 3 * 2 * 1
 
 function factorial(num, product = num) {
   if (num === 0) {
@@ -90,11 +109,19 @@ console.log(factorial(0)); // -> 1
 
 
 
-
 ////////////////////////////
 //     Challenge 4
 ////////////////////////////
 
+// Get Length
+
+// Modify the function so that it returns the length of an array recursively, without using the .length property. Use recursion!
+
+// Hint: when you index outside of an array, it returns undefined
+
+// The factorial of n is the product of all numbers between 1 and n
+
+// Ex: 5! = 5 * 4 * 3 * 2 * 1
 
 function getLength(array, i = 0) {
 
@@ -106,10 +133,16 @@ function getLength(array, i = 0) {
 // console.log(getLength([1, 2, 3, 4, 5])); // -> 5
 
 
+
 ////////////////////////////
 //     Challenge 5
 ////////////////////////////
 
+// POW
+
+// Modify the function so that it returns base to the power of exponent. Use recursion!
+
+// Ex: pow(5, 3) = 5 * 5 * 5
 
 function pow(base, exponent) {
 
@@ -119,10 +152,17 @@ function pow(base, exponent) {
 // console.log(pow(2, 4)); // -> 16
 // console.log(pow(3, 5)); // -> 243
 
+
+
 ////////////////////////////
 //     Challenge 6
 ////////////////////////////
 
+// Flow
+
+// Modify the function so that it returns the result of running the input number through each function in funcArray, in order. Use recursion!
+
+// First do it recursively, if you have time at the end try using a reduce function
 
 function flow(input, funcArray, i = 0) {
 
@@ -142,6 +182,11 @@ function flow(input, funcArray, i = 0) {
 //     Challenge 7
 ////////////////////////////
 
+// Fibinacci
+
+// Modify the function so that it returns the nth Fibinacci number. Try not to look back at the slides!
+
+// Fibinaccia reference: [1, 1, 2, 3, 5, 8, 13, ...]
 
 function fib(n) {
 
@@ -152,9 +197,15 @@ function fib(n) {
 // console.log(fib(2)); // -> 1
 // console.log(fib(7)); // -> 13
 
+
+
 ////////////////////////////
 //     Challenge 8
 ////////////////////////////
+
+// Heads or Tails
+
+// Modify the function so that it returns all possible outcomes of n games of heads or tails as an array of arrays
 
 function headsOrTails(n) {
 
@@ -174,9 +225,15 @@ function headsOrTails(n) {
 //   ['tails', 'tails', 'tails'],
 // ]
 
+
+
 ////////////////////////////
 //     Challenge 9
 ////////////////////////////
+
+// Combos of Any length
+
+// Modify this function so that it returns all combinations of the elements of arr as an array of arrays. Use Recursion!
 
 function getAllCombos(arr) {
 
@@ -195,79 +252,3 @@ function getAllCombos(arr) {
 //   ['c'],
 //   [],
 // ]
-
-
-
-// Recursion
-// Recursion is an uncommon idea in the real world. We don’t come across it very often and for this reason it can be difficult to wrap our heads around it.
-
-// What is it?
-// In programming, a function is considered recursive if it calls itself during execution.
-
-// What does recursion need?
-// A base case to be met; something that will end the execution. The calling of itself.
-
-// Why is recursion helpful?
-// Often recursive function are more expressive; they closer resemble how someone would describe a solution in english.
-
-// Challenges:
-// Challenge One
-// Repeater
-
-// Modify the function so that it returns a string containing the input character repeated 5 times Use recursion!
-
-// Challenge Two
-// Is Even
-
-// Modify the function so that it returns true if a number is even (and false if it's not) assume input will be a positive integer Use recursion!
-
-// Challenge Three
-// Factorial
-
-// Modify the function so that it returns the factorial of an input number Use recursion!
-
-// The factorial of n is the product of all numbers between 1 and n
-
-// Ex: 5! = 5 * 4 * 3 * 2 * 1
-
-// Challenge Four
-// Get Length
-
-// Modify the function so that it returns the length of an array recursively, without using the .length property. Use recursion!
-
-// Hint: when you index outside of an array, it returns undefined
-
-// The factorial of n is the product of all numbers between 1 and n
-
-// Ex: 5! = 5 * 4 * 3 * 2 * 1
-
-// Challenge Five
-// POW
-
-// Modify the function so that it returns base to the power of exponent. Use recursion!
-
-// Ex: pow(5, 3) = 5 * 5 * 5
-
-// Challenge Six
-// Flow
-
-// Modify the function so that it returns the result of running the input number through each function in funcArray, in order. Use recursion!
-
-// First do it recursively, if you have time at the end try using a reduce function
-
-// Challenge Seven
-// Fibinacci
-
-// Modify the function so that it returns the nth Fibinacci number. Try not to look back at the slides!
-
-// Fibinaccia reference: [1, 1, 2, 3, 5, 8, 13, ...]
-
-// Challenge Eight
-// Heads or Tails
-
-// Modify the function so that it returns all possible outcomes of n games of heads or tails as an array of arrays
-
-// Challenge Nine
-// Combos of Any length
-
-// Modify this function so that it returns all combinations of the elements of arr as an array of arrays. Use Recursion!

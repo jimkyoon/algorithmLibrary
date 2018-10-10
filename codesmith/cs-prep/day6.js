@@ -1,14 +1,4 @@
-// Day 6 Notes
-
-// Time complexity
-
-// pythontutor js
-
-// when you take limit of infnity, you care about the exponents/degree 
-// drop coefficent
-// care about the 
-
-// pushing onto an array is O(1), fine, but once you get past the memeory block, it has to copy to a new memeory block that fits the size, then its ?
+// CS Prep Day 6
 
 // Challenges
 
@@ -56,6 +46,8 @@ function modeTests() {
 
 //modeTests() // uncomment to test!
 
+
+
 ////////////////////////////
 //     Challenge 2
 ////////////////////////////
@@ -79,6 +71,7 @@ function medianTests() {
 }
 
 //medianTests() // uncomment to test!
+
 
 
 ////////////////////////////
@@ -121,6 +114,8 @@ function primeTests() {
 
 primeTests() // Uncomment to check code!
 
+
+
 ////////////////////////////
 //     Challenge 4
 ////////////////////////////
@@ -147,6 +142,7 @@ function ransomTests() {
 }
 
 // ransomTests() // Uncomment to check code!
+
 
 
 ////////////////////////////
@@ -213,6 +209,8 @@ function dupsTests() {
 
  dupsTests() // Uncomment to check code!
 
+
+
 ////////////////////////////
 //     Challenge 6
 ////////////////////////////
@@ -232,6 +230,8 @@ function uniqueNumberTests() {
 }
 
 // uniqueNumberTests() // uncomment to test!
+
+
 
 ////////////////////////////
 //     Challenge 7
@@ -260,6 +260,7 @@ function palindromeTests() {
 // palindromeTests() // uncomment to check code!
 
 
+
 ////////////////////////////
 //     Challenge 8
 ////////////////////////////
@@ -282,6 +283,8 @@ function sortTests() {
 
 // sortTests() // uncomment to test!
 
+
+
 ////////////////////////////
 //     Challenge 9
 ////////////////////////////
@@ -302,6 +305,8 @@ function shuffleTests() {
 }
 
 // shuffleTests() // Determine a way to test this function!
+
+
 
 ////////////////////////////
 //     Challenge 10
