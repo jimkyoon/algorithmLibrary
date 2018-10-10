@@ -35,6 +35,34 @@ function largestAndSmallest(array) {
 // console.log(largestAndSmallest([16, -70, 122])); should log [-70, 122]
 
 
+// instructor examples
+function largestAndSmallest(arr) {
+  // declare some output array 
+    // first element will be Infinity 
+    // second element will be -Infinity
+  const output = [Infinity, -Infinity];
+  // iterate over input array 
+    // if current is < than output[0], replace it 
+    // if current is > than output[1], replace it
+  for (let i = 0; i < arr.length; i += 1) {
+    if (arr[i] < output[0]) {
+      output[0] = arr[i];
+    }
+    if (arr[i] > output[1]) {
+      output[1] = arr[i];
+    }
+  }
+  return output;
+}
+
+const largestAndSmallestSpread = arr => [Math.min(...arr), Math.max(...arr)];
+
+const largestAndSmallestReduce = arr => arr.reduce((acc, num) => {
+  if (num < acc[0]) acc[0] = num;
+  if (num > acc[1]) acc[1] = num;
+  return acc;
+}, [Infinity, -Infinity]);
+
 
 // Advanced
 
@@ -67,3 +95,17 @@ function reverseNumber(num) {
 console.log(reverseNumber(456)); // should log 654
 console.log(reverseNumber(1000)); // should log 1
 console.log(reverseNumber(-789)); // should log -987
+
+// Instructor examples
+const reverseInteger = num => {
+  let str = num.toString();
+  const isNegative = num < 0 ? true : false;
+  if (str[0] === '-') {
+    str = str.slice(1);
+  }
+  let reverseString = ''
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    reverseString += str[i];
+  }
+  return (isNegative ? - 1 : 1) * Number(reverseString);
+}
