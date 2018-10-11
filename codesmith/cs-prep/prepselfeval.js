@@ -16,6 +16,7 @@ printGridByRow([
 ])
 
 
+
 /****** Challenge 2 - printGridByCol ******/
 
 function printGridByCol(grid) {
@@ -35,6 +36,7 @@ printGridByCol([
   [6,4,0],
   [-2,1,10]
 ])
+
 
 
 /****** Challenge 3 - goToZero ******/
@@ -60,6 +62,7 @@ goToZero(11) // should print 11, 10, 5, 4, 2, 1
 goToZero(82) // should print 82, 41, 40, 20, 10, 5, 4, 2, 1
 
 
+
 /****** Challenge 4 - objectToArray ******/
 
 function objectToArray(obj) {
@@ -76,6 +79,7 @@ console.log(objectToArray({
   challenge: 'to',
   go: '!'
 }))
+
 
 
 /****** Challenge 5 - incrementX and addToX ******/
