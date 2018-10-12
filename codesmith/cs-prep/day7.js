@@ -45,7 +45,7 @@ function containsDuplicates(arr) {
   let cache = {}
   
   for(let i = 0; i < arr.length; i++){
-    if( cache.hasOwnProperty('arr[i]')){
+    if(cache.hasOwnProperty('arr[i]')){
       cache[arr[i]] + 1;
     }
     else {
