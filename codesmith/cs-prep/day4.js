@@ -8,7 +8,7 @@
 // Create a function addTwo that accepts one input and adds 2 to it.
 
 function addTwo(num) {
-	return num += 2;
+  return num += 2;
 }
 
 // To check if you've completed it, uncomment these console.logs!
@@ -21,7 +21,7 @@ console.log(addTwo(10));
 // Create a function addS that accepts one input and adds an "s" to it.
 
 function addS(word) {
-	return word + 's';
+  return word + 's';
 }
 
 // uncomment these to check your work
@@ -40,10 +40,10 @@ console.log(addS('bagel'));
 // multiplyByTwo(2); //-> 4
 
 function map(array, callback) {
-	let result = [];
-    for(let i = 0; i < array.length; i++){
-      	result.push(callback(array[i]));
-    }
+  const result = [];
+  for (let i = 0; i < array.length; i += 1) {
+    result.push(callback(array[i]));
+  }
   return result;
 }
 
@@ -61,8 +61,8 @@ console.log(map([1, 2, 3], addTwo));
 // console.log(alphabet);   //prints 'abcd'
 
 function forEach(array, callback) {
-	for(let i = 0; i < array.length; i++){
-    	callback(array[i]);
+  for (let i = 0; i < array.length; i += 1) {
+    callback(array[i]);
   }
 }
 

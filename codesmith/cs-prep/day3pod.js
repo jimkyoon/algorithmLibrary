@@ -46,7 +46,7 @@ console.log(addingToX(10)); // 55
 
 
 // Instructor examples
-function addingToX (num) {
+function addingToX(num) {
   return (num * (num + 1) / 2);
 }
 
@@ -55,7 +55,7 @@ function addingToX (num) {
 //Challenge Part 2
 
 function arrayToX(num) {
-  let result = [];
+  const result = [];
   for (let i = 1; i <= num; i += 1) {
     result.push(addingToX(i));
   }
@@ -86,14 +86,14 @@ function modemean(array) {
   // create variables for mean and mode results
   let mode = 0;
   let mean = 0;
-  
+
   // start mean with forloop then divide by length
   let sum = 0;
   for (let i = 0; i < array.length; i += 1) {
     sum += array[i];
   }
   mean = sum / array.length;
-  
+
   // now onto mode, using object to take count 
   const counter = {};
   for (let i = 0; i < array.length; i += 1) {
@@ -125,7 +125,7 @@ function modemean(array) {
     }
   }
   mode = holder;
-  
+
   // check to see if mode and mean are the same
   if (mean === mode) {
     return true;
@@ -137,7 +137,7 @@ function modemean(array) {
 
 // instructor's version
 
-function modemean (array) {
+function modeMean1(array) {
   // mode
   const tallys = array.reduce((acc, num) => {
     if (acc[num]) {
@@ -153,7 +153,7 @@ function modemean (array) {
     if (!tallys[acc]) {
       acc = num;
     }
-    if (tallys[n] > tallys[acc]) {
+    if (tallys[num] > tallys[acc]) {
       acc = num;
     }
   }, -Infinity);
@@ -169,8 +169,8 @@ function modemean (array) {
 const modeMean2 = (arr) => {
   const mathObject = {
     mode: -Infinity,
-    sum: 0
-  }
+    sum: 0,
+  };
   arr.reduce((acc, num) => {
     acc.sum += num;
     if (!acc[num]) {
@@ -184,5 +184,5 @@ const modeMean2 = (arr) => {
     }
     return acc;
   }, mathObject);
-  return mathObject.mode === math.floor(mathObject.sum / arr.length);
+  return mathObject.mode === Math.floor(mathObject.sum / arr.length);
 }
