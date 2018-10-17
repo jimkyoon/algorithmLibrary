@@ -132,7 +132,7 @@
 
 // Write a function called printDriverHeight that logs the driver's height when invoked.
 
-function printDriverHeight () {
+function printDriverHeight() {
   console.log('Driver\'s height is ...');
 }
 
@@ -155,7 +155,7 @@ printDriverHeight();
 // howTall('5 feet'); // prints 'I am 5 feet tall'
 // In the example above, the function howTall accepts a parameter called height, and its behavior changes depending on this input. In the following challenges, you'll write functions with parameters.
 
-function printNavigatorName () {
+function printNavigatorName() {
   console.log('Navigator\'s name is Jordan');
 }
 
@@ -174,12 +174,11 @@ printNavigatorName();
 // Call printName with the driver's name as a parameter.
 // Call printName with the navigator's name as a parameter.
 
-function printName (name) {
-  let output = name;
-  return output;
+function printName(driver, navigator) {
+  return driver + ' and ' + navigator; 
 }
 
-console.log(printName("Jordan Jim"));
+console.log(printName('Jordan', 'Jim'));
 
 // When you run your code, it should print the driver's name followed by the navigator's name
 
@@ -209,14 +208,14 @@ console.log(printName("Jordan Jim"));
 // In the challenges below, you will write functions with return statements.
 
 function printGroupName(driverName, navigatorName) {
-  console.log(driverName + " and " + navigatorName);
+  console.log(driverName + ' and ' + navigatorName);
 }
 
 
 
 // Uncomment the line below to test your code
- printGroupName('Jordan', 'Jim')
- //should print 'Sonny and Cher'
+printGroupName('Jordan', 'Jim');
+
 
 
 ////////////////////////////
@@ -227,12 +226,12 @@ function printGroupName(driverName, navigatorName) {
 // It will take two parameters driverHeight and navigatorHeight.
 // It should return the product of the heights.
 
-function multiplyHeight (driverHeight, navigatorHeight) {
+function multiplyHeight(driverHeight, navigatorHeight) {
   return driverHeight * navigatorHeight;
 }
 
 // Uncomment the line below to test your code
-console.log('Challenge 5:', multiplyHeight(66, 72) === 4752)
+console.log('Challenge 5:', multiplyHeight(66, 72) === 4752);
 // should print 'Challenge 5: true'
 
 
@@ -245,12 +244,12 @@ console.log('Challenge 5:', multiplyHeight(66, 72) === 4752)
 // It will take number as a parameter.
 // It will return the square of the number.
 
-function square (number) {
+function square(number) {
   return number * number;
 }
 
 // Uncomment the line below to test your code
-console.log('Challenge 6:', square(3) === 9 && square(-4) === 16)
+console.log('Challenge 6:', square(3) === 9 && square(-4) === 16);
 // should print 'Challenge 6: true'
 
 
@@ -264,15 +263,14 @@ console.log('Challenge 6:', square(3) === 9 && square(-4) === 16)
 // It will use the function square to calculate the square of the radius.
 // It should return 3.14 times the square of the radius.
 
-function getArea (radius) {
+function getArea(radius) {
   let output = square(radius);
   output *= 3.14;
   return output;
-  
 }
 
 // Uncomment the line below to test your code
- console.log('Challenge 7:', getArea(5) === 78.5)
+console.log('Challenge 7:', getArea(5) === 78.5);
 // should print 'Challenge 7: true'
 
 
@@ -290,16 +288,16 @@ function getArea (radius) {
 // Call your function with the navigator's name and true.
 // Call your function with the driver's name and false.
 
-var greeting = (name, casual) => {
+const greeting = (name, casual) => {
   if (casual === true) {
-    console.log("Hey " + name);
+    console.log('Hey ' + name);
   } else {
-    console.log("Hello " + name);
+    console.log('Hello ' + name);
   }
-}
+};
 
-greeting("Jim", true);
-greeting("Jordan", false);
+greeting('Jim', true);
+greeting('Jordan', false);
 // When you run it, it should print the following:
 // Hey followed by the navigator's name
 // Hello followed by hte driver's name
@@ -346,16 +344,16 @@ isCodesmithOpen(9);
 // Otherwise log 'Small please!'
 
 const smallMediumOrLarge = (howHungry) => {
- if (howHungry === 5) {
-   console.log('Large please!');
- }
- else if (howHungry === 3 || howHungry === 4) {
-   console.log('Medium please!');
- }
- else {
-   console.log('Small please!');
- }
-}
+  if (howHungry === 5) {
+    console.log('Large please!');
+  }
+  else if (howHungry === 3 || howHungry === 4) {
+    console.log('Medium please!');
+  }
+  else {
+    console.log('Small please!');
+  }
+};
 
 // Uncomment the lines below to test your code
 smallMediumOrLarge(5);
@@ -377,13 +375,20 @@ smallMediumOrLarge(1);
 // If the dog is wellBehaved and isCute, log 'pet'.
 // Otherwise log 'train'.
 
-// ADD CODE HERE
+const isAGoodBoy = (wellBehaved, isCute) => {
+  if (wellBehaved && isCute) {
+    console.log('pet');
+  }
+  else {
+    console.log('train');
+  }
+};
 
 // Uncomment the lines below to test your code
-// isAGoodBoy(true, true);
-// isAGoodBoy(true, false);
-// isAGoodBoy(false, true);
-// isAGoodBoy(false, false);
+isAGoodBoy(true, true);
+isAGoodBoy(true, false);
+isAGoodBoy(false, true);
+isAGoodBoy(false, false);
 // Should print pet, train, train, train
 
 
@@ -397,14 +402,24 @@ smallMediumOrLarge(1);
 // Otherwise, if the banana's color is 'green', log 'wait'.
 // Otherwise log 'don't eat'.
 
-// ADD CODE HERE
+const shouldEatBanana = (color, smellsGood) => {
+  if (color === 'yellow' && smellsGood) {
+    console.log('eat');
+  }
+  else if (color === 'green') {
+    console.log('wait');
+  }
+  else {
+    console.log('don\'t eat');
+  }
+};
 
 // Uncomment the lines below to test your code
-// shouldEatBanana('yellow', true);
-// shouldEatBanana('yellow', false);
-// shouldEatBanana('green', true);
-// shouldEatBanana('green', false);
-// shouldEatBanana('red', true);
+shouldEatBanana('yellow', true);
+shouldEatBanana('yellow', false);
+shouldEatBanana('green', true);
+shouldEatBanana('green', false);
+shouldEatBanana('red', true);
 // Should print 'eat', "don't eat", 'wait', 'wait', "don't eat"
 
 
@@ -415,10 +430,14 @@ smallMediumOrLarge(1);
 
 // Write a function countTo5 that uses a for loop to log the numbers 1 through 5.
 
-// ADD CODE HERE
+const countTo5 = () => {
+  for (let i = 1; i < 6; i += 1) {
+    console.log(i);
+  }
+};
 
 // Uncomment the line below to test your code
-// countTo5();
+countTo5();
 // should print '1, 2, 3, 4, 5'
 
 
@@ -430,8 +449,17 @@ smallMediumOrLarge(1);
 // Write a function countMost that uses a for loop to loop over the numbers 1 to 5.
 // Log all the numbers except 3.
 
-// ADD CODE HERE
+const countMost = () => {
+  for (let i = 1; i < 5; i += 1) {
+    if (i === 3) {
+      continue;
+    }
+    else {
+      console.log(i);
+    }
+  }
+};
 
 // Uncomment the line below to test your code
-// countMost();
+countMost();
 // should print '1, 2, 4, 5'

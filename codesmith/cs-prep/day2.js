@@ -27,11 +27,11 @@
 // give bar the value "world".
 // and give baz the value true.
 
-var myObj = {
-  foo: "hello",
-  bar: "world",
-  baz: true
-}
+const myObj = {
+  foo: 'hello',
+  bar: 'world',
+  baz: true,
+};
 
 
 
@@ -60,12 +60,12 @@ var myObj = {
 // console.log(name.last); // logs => "Meow"
 // Let's try accessing some object properties in a challenge:
 
-var myNestedObj = {
-  outer: "outer value",
+const myNestedObj = {
+  outer: 'outer value',
   innerObj: {
-    inner: "inner value"
-  }
-}
+    inner: 'inner value',
+  },
+};
 
 
 
@@ -79,15 +79,13 @@ var myNestedObj = {
 // call sayTeamNames with your team object
 
 const team = {
-  partner1: "Sam",
-  partner2: "Jim"
-}
+  partner1: 'Sam',
+  partner2: 'Jim',
+};
 
-function sayTeamNames (teamObj){
-  console.log(teamObj['partner1'] + " and " + teamObj['partner2']);
+function sayTeamNames(teamObj) {
+  console.log(teamObj['partner1'] + ' and ' + teamObj['partner2']);
 }
-// ahhh... forgot about keys needing '' around them!
-// works now :)
 
 sayTeamNames(team);
 
@@ -105,16 +103,16 @@ sayTeamNames(team);
 // }
 // Display the message contained in myLoopedObj by logging each property value using a for...in loop
 
-var myLoopedObj = {
+const myLoopedObj = {
   key1: 'wow',
   key2: 'you',
   key3: 'did',
-  key4: 'it!'
-}
+  key4: 'it!',
+};
 
-for (var key  in myLoopedObj) {
+for (let key in myLoopedObj) {
   console.log(myLoopedObj[key]);
-}
+};
 
 // Javascript has some objects built in with useful functions. The Math object in javascript has a collection of functions that can be used for common math operations. Let's explore some of the functions in a challenge:
 
@@ -132,6 +130,11 @@ for (var key  in myLoopedObj) {
 // Math.min(num1, num2, ...etc) will return the smallest of all the numbers passed in. Log the result of calling Math.min() with three numbers of your choosing
 // Math.pow(a, x) will return the result of a to the xth power, log the result of 4 to the 2nd power
 
+console.log(Math.floor(1.5));
+console.log(Math.floor(2.3));
+console.log(Math.ceil(1.5));
+console.log(Math.ceil(2.3));
+
 
 
 // Arrays
@@ -147,6 +150,8 @@ for (var key  in myLoopedObj) {
 
 // make an array named myFirstArray and give it three elements
 
+const myFirstArray = [1, 2, 3];
+
 
 
 ////////////////////////////
@@ -158,7 +163,8 @@ for (var key  in myLoopedObj) {
 // Knowing this, use the length property to log the last item in someArray. The element can be accessed using bracket notation:
 // array[someIndex]
 
-var someArray = [0,1,2,3,4,'you found me!'];
+const someArray = [0, 1, 2, 3, 4, 'you found me!'];
+const lastItemInSomeArray = someArray[someArray.length - 1];
 
 
 
@@ -168,9 +174,9 @@ var someArray = [0,1,2,3,4,'you found me!'];
 
 // Another type of for loop can be used to declare a iterator (most commonly named i) and increment it on each loop. This loop will stop when the index is equal to the length of the array. Use a for loop to print out the array values in someArray
 
-// for (var i = 0; i < array.length; i++) {     
-//     // do something here   
-// }
+for (let i = 0; i < array.length; i += 1) {
+  console.log(i);
+}
 
 
 
@@ -185,7 +191,10 @@ var someArray = [0,1,2,3,4,'you found me!'];
 // }
 // Log the values of wordArr using a for... of loop
 
-var wordArr = ['i', 'have', 'some', 'stings', 'inside', 'me'];
+const wordArr = ['i', 'have', 'some', 'stings', 'inside', 'me'];
+for (let value of wordArr) {
+  console.log(value);
+}
 
 
 
@@ -200,19 +209,22 @@ var wordArr = ['i', 'have', 'some', 'stings', 'inside', 'me'];
 // array.push() accepts one or more arguments and adds them to the beginning of the array
 // Use these methods in Challenge 10
 
-var changeMe = ['shiftMe', 'leaveMe', 'popMe']
+const changeMe = ['shiftMe', 'leaveMe', 'popMe'];
 // call the array methods, then uncomment the last line to check your answer
 // call pop and log the result
-
-// console.log()
+changeMe.pop();
+console.log();
 
 // call push with the string "pushMe"
+changeMe.push('pushMe');
 
 // call shift and log the result
-
-// console.log()
+changeMe.shift();
+console.log();
 
 // call unshift with the string "unshiftMe"
+changeMe.unshift('unshiftMe');
+
 
 
 
@@ -224,19 +236,19 @@ var changeMe = ['shiftMe', 'leaveMe', 'popMe']
 
 // Uncomment the lines in the Challenge 11 and try and predict what will be return in the three equality expressions. Then in part two, slice the array and save each half in a variable
 
-// var a = [1,2,3];
-// var b = a;
-// console.log("array a is equal to array b?", a == b) // what will this return?
-// var c = [1,2,3]
-// console.log("array a is equal to array c?", a == c) // what will this return?
-// var d = a.slice();
-// console.log("array a is equal to array d?", a == d) // what will this return?
+const a = [1, 2, 3];
+const b = a;
+console.log('array a is equal to array b?', a === b); // what will this return? true
+const c = [1, 2, 3];
+console.log('array a is equal to array c?', a === c); // what will this return? false
+const d = a.slice();
+console.log('array a is equal to array d?', a === d); // what will this return? false
 
 
 
-var sliceMe = ["first","half", "second", "half"];
-// var firstHalf = 
-// var secondHalf = 
+const sliceMe = ['first', 'half', 'second', 'half'];
+const firstHalf = sliceMe.slice(0, 1);
+const secondHalf = sliceMe.slice(2, 3);
 
 
 
@@ -250,14 +262,16 @@ var sliceMe = ["first","half", "second", "half"];
 // Then, use the .splice() method to fix the two arrays
 
 
-// var arrA = [0,1,"remove me!", 2, 3]
-// arrA.splice(2,1);
-// console.log(arrA);
-// arrA.splice(1,1,"one");
-// console.log(arrA);
+const arrA = [0, 1, 'remove me!', 2, 3];
+arrA.splice(2, 1);
+console.log(arrA); // [0, 1, 2, 3]
+arrA.splice(1, 1, 'one');
+console.log(arrA); // [0, 'one', 2, 3]
 
 
 
 // fix the arrays
-// var numCount = [0, 1, "two", "three", 4];
-// var wordCount = ["zero", "one", 2, 3, "four"];
+const numCount = [0, 1, 'two', 'three', 4];
+const wordCount = ['zero', 'one', 2, 3, 'four'];
+numCount.splice(2, 2, 2, 3);
+wordCount.splice(2, 2, 'two', 'three');

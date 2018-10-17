@@ -19,12 +19,12 @@
 const makePerson = (name, age) => {
   const result = {
     name: name,
-    age:  age
+    age: age
   };
- return result;
+  return result;
 };
 
-let vicky = makePerson('Vicky', 24);
+const vicky = makePerson('Vicky', 24);
 
 // /********* Uncomment these lines to test your work! *********/
 console.log(vicky.name); // -> Logs 'Vicky'
@@ -40,10 +40,10 @@ console.log(vicky.age); // -> Logs 24
 
 // Inside personStore object, create a property greet where the value is a function that logs "hello".
 
-var personStore = {
-greet: function() {
-  console.log('hello');
-}
+const personStore = {
+  greet: () => {
+    console.log('hello');
+  },
 };
 
 // /********* Uncomment this line to test your work! *********/
@@ -56,21 +56,13 @@ personStore.greet(); // -> Logs 'hello'
 // Create a function personFromPersonStore that takes as input a name and an age. When called, the function will create person objects using the Object.create method on the personStore object.
 
 function personFromPersonStore(name, age) {
-const newPerson = Object.create(personStore);
-newPerson.name = name;
-newPerson.age = age;
-return newPerson;
+  const newPerson = Object.create(personStore);
+  newPerson.name = name;
+  newPerson.age = age;
+  return newPerson;
 }
 
-// i think we want to create an object that has keys name, age?
-
-// ok i got it using MDN
-// i think we create the object, then add in keys to the object created inside the function personFromPersonStore
-
-
-
-var sandra = personFromPersonStore('Sandra', 26);
-
+const sandra = personFromPersonStore('Sandra', 26);
 
 // /********* Uncomment these lines to test your work! *********/
 console.log(sandra.name); // -> Logs 'Sandra'
@@ -84,9 +76,11 @@ sandra.greet(); //-> Logs 'hello'
 // Without editing the code you've already written, add an introduce method to the personStore object that logs "Hi, my name is [name]".
 // Using the NEW keyword
 
-// add code here
-
-// sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
+const sandra = new personFromPersonStore('Sandra', 26);
+sandra.introduce = () => {
+  console.log('Hi, my name is ${this.name}');
+}
+sandra.introduce(); // -> Logs 'Hi, my name is Sandra'
 
 
 
@@ -99,15 +93,14 @@ sandra.greet(); //-> Logs 'hello'
 // Create a function PersonConstructor that uses the this keyword to save a single property onto its scope called greet. greet should be a function that logs the string 'hello'.
 
 function PersonConstructor() {
-// add code here
-
-
+  this.greet = function() {
+    console.log('hello');
+  }
 }
 
-
 // /********* Uncomment this line to test your work! *********/
-var simon = new PersonConstructor;
-// simon.greet(); // -> Logs 'hello'
+const simon = new PersonConstructor();
+simon.greet(); // -> Logs 'hello'
 
 
 
@@ -116,9 +109,7 @@ var simon = new PersonConstructor;
 // Create a function personFromConstructor that takes as input a name and an age. When called, the function will create person objects using the new keyword instead of the Object.create method.
 
 function personFromConstructor(name, age) {
-// add code here
-
-
+  
 }
 
 var mike = personFromConstructor('Mike', 30);

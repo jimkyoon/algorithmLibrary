@@ -15,14 +15,12 @@ function reverseString(string) {
   return newStr;
 }
 
-
 // Uncomment the line below and click "run" to test your code
-console.log('Challenge 1:', reverseString("codesmith prep") === "perp htimsedoc" ? "Correct!" : "Try again!");
+console.log('Challenge 1:', reverseString('codesmith prep') === 'perp htimsedoc' ? 'Correct!' : 'Try again!');
 
 
 // instructor example
-
-function reverseString (str) {
+function reverseString1 (str) {
   let output = '';
   for (let i = str.length; i >= 0; i -= 1) {
     output += str[i];
@@ -31,20 +29,20 @@ function reverseString (str) {
 }
 
 // another one
-const reverseString = (str) => {
+const reverseString2 = (str) => {
   let output = '';
   for (let i = 0; i < str.length; i += 1) {
     const currentCharIndex = str.length - 1 - i;
     output += str[currentCharIndex];
   }
-  return outputt;
+  return output;
 }
 
 // another one
-const reverseString = str => str.split('').reverse().join('');
+const reverseString3 = str => str.split('').reverse().join('');
 
 // another one
-const reverseString = str => {
+const reverseString4 = (str) => {
   const stringArray = str.split('');
   let low = 0;
   let high = str.length - 1;
@@ -89,22 +87,22 @@ function drawStairs(n) {
       }
     }
     else {
-      return "Number is too high or low";
+      return 'Number is too high or low';
     }
   }
   else {
-    return "Not a number";
+    return 'Not a number';
   }
 }
 
 drawStairs(5);
 
 // instructor example
-function drawStairs(n) {
+function drawStairs1(n) {
   for (let i = 0; i < n; i += 1) {
     const asterisk = i + 1;
-    const spaces = n - asterisks;
-    console.log(' '.repeat(spaces) + 'x'.repeat(asterisks));
+    const spaces = n - asterisk;
+    console.log(' '.repeat(spaces) + 'x'.repeat(asterisk));
   }
 }
 
@@ -114,4 +112,4 @@ const repeater = (num , char) => {
   for (let i = 0; i < num; i += 1) {
     
   }
-}
+};

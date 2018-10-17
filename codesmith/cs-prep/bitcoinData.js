@@ -8029,4 +8029,4 @@ const bitcoinData = [
     "fees": 16.08550077,
     "activeAddresses": null
   }
-  ];
+];
