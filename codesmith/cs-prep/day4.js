@@ -89,8 +89,35 @@ function reduce(array, callback, initialValue) {
 // Extension 3
 // Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs. BONUS: Use reduce!
 
-function intersection(arrays) {
-
+function intersection(array) {
+  const result = [];
+  const tracker = {};
+  for (let i = 0; i < array[0].length; i += 1) {
+    if (tracker[array[0][i]] === undefined) {
+      tracker[array[0][i]] = 1;
+    }
+    else {
+      tracker[array[0][i]] += 1;
+    }
+  }
+  for (let i = 1; i < array.length; i += 1) {
+    let line = array[i];
+    for (let j = 0; j < line.length; j += 1) {
+      if (tracker.hasOwnProperty(line[j])) {
+        tracker[line[j]] += 1;
+      }
+      else {
+        tracker[line[j]] = 1;
+      }
+    }
+  }
+  console.log(tracker);
+  for (let i in tracker) {
+    if (tracker[i] === array.length) {
+      result.push(Number(i));
+    }
+  }
+  return result;
 }
 
 // console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
@@ -99,11 +126,31 @@ function intersection(arrays) {
 // Extension 4
 // Construct a function union that compares input arrays and returns a new array that contains all elements. If there are duplicate elements, only add it once to the new array. Preserve the order of the elements starting from the first element of the first input array. BONUS: Use reduce!
 
-function union(arrays) {
-
+function union(array) {
+  const result = [];
+  for (let i = 0; i < array[0].length; i += 1) {
+    if (result.includes(array[0][i])) {
+      continue;
+    }
+    else {
+      result.push(array[0][i]);
+    }
+  }
+  for (let i = 1; i < array.length; i += 1) {
+    let line = array[i];
+    for (let j = 0; j < line.length; j += 1) {
+      if (result.includes(line[j])) {
+        continue;
+      }
+      else {
+        result.push(line[j]);
+      }
+    }
+  }
+  return result;
 }
 
-// console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
 // should log: [5, 10, 15, 88, 1, 7, 100]
 
 // Extension 5
