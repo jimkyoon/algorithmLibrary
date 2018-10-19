@@ -9,7 +9,7 @@ const select = (array, callback) => {
   // create an array to return out at the end 
   const result = [];
   // go through the array and apply the callback on each element
-  array.forEach(element => {
+  array.forEach((element) => {
     // if the callback returns true, push it into the result array
     if (callback(element)) {
       result.push(element);
@@ -17,7 +17,7 @@ const select = (array, callback) => {
   });
   // return the result
   return result;
-}
+};
 
 // UNCOMMENT THESE LINES TO CHECK YOUR WORK
 const arr = [1, 2, 3, 4, 5];
@@ -29,7 +29,7 @@ console.log(select(arr, isEven)); // should log: [2, 4]
 // Challenge 2: Russian Roulette
 // Define a function russianRoulette that accepts a number (let us call it n), and returns a function. The returned function will take no arguments, and will return the string ‘click’ the first n - 1 number of times it is invoked. On the very next invocation (the nth invocation), the returned function will return the string ‘bang’. On every invocation after that, the returned function returns the string ‘reload to play again’.
 
-const russianRoulette = n => {
+const russianRoulette = (n) => {
   // create a tracking number and n for the function to know how many shots till the nth number
   let tracker = 1;
   const nth = n;
@@ -52,7 +52,7 @@ const russianRoulette = n => {
     }
   }
   return theShot;
-}
+};
 
 // UNCOMMENT THESE LINES TO CHECK YOUR WORK
 const play = russianRoulette(3);
@@ -70,7 +70,7 @@ console.log(play()); // should log: ‘reload to play again’
 // Fibonacci series: 1, 1, 2, 3, 5, 8, 13, 21, 34 (each number is found by adding the previous two)
 // More Info: https://en.wikipedia.org/wiki/Fibonacci_number
 
-const nthFibonacci = n => {
+const nthFibonacci = (n) => {
   // base case
   // since series is starting with the second 1 in the fib sequence
   // check to see if number is less than 3
@@ -82,7 +82,7 @@ const nthFibonacci = n => {
   // apply the fibonacci math, which is adding the 2 numbers before the nth number in the fib sequence
   // return the sum of "number-1" and the number before that, which is "number-2"
   return nthFibonacci(n - 1) + nthFibonacci(n - 2);
-}
+};
 
 // UNCOMMENT THESE LINES TO CHECK YOUR WORK
 console.log(nthFibonacci(1)); // should log: 1, the series starts with the second 1

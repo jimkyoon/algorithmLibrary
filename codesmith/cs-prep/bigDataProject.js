@@ -13,10 +13,10 @@
 // And finally, let’s find the average bitcoin transaction fees between 2013 and 2015. Be sure to floor this value.
 
 // challenge 1
-// console.log(bitcoinData)
+console.log(bitcoinData);
 
 // challenge 2
-function getDate (dataset) {
+function getDate(dataset) {
   const result = [];
 //   for (let i = 0; i < dataset.length; i += 1) {
 //     if (dataset[i].date === "2013-05-01") {
@@ -25,25 +25,24 @@ function getDate (dataset) {
 //   }
 //   return result;
   
-  dataset.map(val => {
+  dataset.map((val) => {
     val.date === '2013-05-01' ? result.push(val) : 'Nothing found'
-  })
-  
-	return result
+  });
+  return result;
 }
 
 // challenge 3
 function getDateAndPrice(data) {
-  let result = [];
-  data.map(value => {
-    	if(value.date && value['price(USD)']) {
-        const newObj = {};
-        newObj.date = value.date;
-        newObj.price = value['price(USD)'];
-        result.push(newObj);
+  const result = [];
+  data.map((value) => {
+    if (value.date && value['price(USD)']) {
+      const newObj = {};
+      newObj.date = value.date;
+      newObj.price = value['price(USD)'];
+      result.push(newObj);
 //         result.push(value.date + ', ~ ' + value['price(USD)'])
-      }
-  })
+    }
+  });
   return result;
 }
 
@@ -56,18 +55,18 @@ function getDateAndPrice(data) {
 // });
 
 // challenge 4
-const exchangeNotZero = bitcoinData.map(data => {
-  let result = [];
-		if(data['exchangeVolume(USD)'] !== 0) {
-      result.push(data.date)
-    }
-	return result
-}).filter(item => item.length > 0)
+const exchangeNotZero = bitcoinData.map((data) => {
+  const result = [];
+  if (data['exchangeVolume(USD)'] !== 0) {
+    result.push(data.date);
+  }
+  return result;
+}).filter(item => item.length > 0);
 
 
 // challenge 5
 const reduceCoins = bitcoinData.reduce((accumulator, currentValue, currentIndex, array) => {
-  	return accumulator  + currentValue.generatedCoins
+  return accumulator + currentValue.generatedCoins;
 }, 0)
 
 // challenge 6
@@ -78,7 +77,7 @@ const daysOver100 = bitcoinData.filter(data => data['price(USD)'] > 100).length;
 let finalResult = 0;
 
 function averageBitcoin(bitcoinData) {
-    let result = [];
+  const result = [];
   bitcoinData.map(data => {
   let result = [];
   let output = 0;

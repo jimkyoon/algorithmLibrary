@@ -1,11 +1,13 @@
-function buildSentence (word1, word2, word3) {
+function buildSentence(word1, word2, word3) {
   // take first word, grab the first character, uppercase it, then add it back to the rest
   let firstWord = word1.charAt(0).toUpperCase() + word1.slice(1);
   // return the sentence concatenated with the new firstWord and a period after word 3
-  return firstWord + " " + word2 + " " + word3 + ".";
+  return firstWord + ' ' + word2 + ' ' + word3 + '.';
 }
 
-function characterExists (word, character) {
+
+
+function characterExists(word, character) {
   // change word into an array of the characters
   const wordTester = word.split('');
   // create a checker with default false
@@ -19,7 +21,9 @@ function characterExists (word, character) {
   return result;
 }
 
-function premiumCustomers (array) {
+
+
+function premiumCustomers(array) {
   // create a result array to return at the end
   const result = [];
   // use a for loop to go through each element in the array
@@ -41,4 +45,5 @@ function premiumCustomers (array) {
   }
   return result;
 }
-var customers = [ { "name": "Sandra", "id": 57453, "purchases": [{"id": 0, "price": 65}, {"id": 1, "price": 8}, {"id": 2, "price": 10}] }, { "name": "Rodrigo", "id": 09767, "purchases": [{"id": 0, "price": 27}, {"id": 1, "price": 72}, {"id": 2, "price": 13}] }, { "name": "Smithers", "id": 25667, "purchases": [{"id": 0, "price": 7}, {"id": 1, "price": 82}, {"id": 2, "price": 18}] } ];
+
+const customers = [ { "name": "Sandra", "id": 57453, "purchases": [{"id": 0, "price": 65}, {"id": 1, "price": 8}, {"id": 2, "price": 10}] }, { "name": "Rodrigo", "id": 09767, "purchases": [{"id": 0, "price": 27}, {"id": 1, "price": 72}, {"id": 2, "price": 13}] }, { "name": "Smithers", "id": 25667, "purchases": [{"id": 0, "price": 7}, {"id": 1, "price": 82}, {"id": 2, "price": 18}] } ];
