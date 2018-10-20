@@ -180,3 +180,117 @@ console.log(union([arr1, arr2, arr3])); // should log: [5, 10, 15, 88, 1, 7, 100
 
 // objOfMatches
 // construct a function that accepts two arrays and a callback; this will build an object and return it; the function will test each element of the first array using the callback to see if the output matches the elements of the second array
+const objOfMatches = (array1, array2, callback) => {
+  // build an object and return it
+  const result = {};
+  const arrTest = [];
+  // test each element in the first array with callback to see if it matches with second array element
+  array1.map(x => arrTest.push(callback(x)));
+  for (let i = 0; i < arrTest.length; i += 1) {
+    if (arrTest[i] === array2[i]) {
+      result[array1[i]] = array2[i];
+    }
+  }
+  return result;
+};
+
+// Uncomment these to check your work!
+var arr1 = ['hi', 'howdy', 'bye', 'later', 'hello'];
+var arr2 = ['HI', 'Howdy', 'BYE', 'later', 'HELLO'];
+function uppercaser(str) { return str.toUpperCase(); }
+console.log(objOfMatches(arr1, arr2, uppercaser)); // should log: { hi: 'HI', bye: 'BYE', hello: 'HELLO' }
+
+
+
+// multiMap
+// construct a function that takes in two arrays, 1. values, 2. callbacks; return an object where the keys are the values of the first array, and the values are the results of the callback ran on the values from the first array
+const multiMap = (arrayVal, arrayCB) => {
+  // return an object whose keys match the elements in the array of vals
+  const result = {};
+  // the keys are the values in array 1
+  // the values are the result of the callback functions
+  arrayVal.map((el) => {
+    result[el] = [];
+    arrayCB.forEach((cbel) => {
+      result[el].push(cbel(el));
+    });
+  });
+  return result;
+};
+
+// Uncomment these to check your work!
+function uppercaser(str) { return str.toUpperCase(); }
+function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
+function repeater(str) { return str + str; }
+var items = ['catfood', 'glue', 'beer'];
+var functions = [uppercaser, capitalize, repeater];
+console.log(multiMap(items, functions)); // should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
+
+
+
+// majority
+// create a function that will take in an array and callback, the callback will return true or false, run it though every element; in the end, if majority of them are true, return true, otherwise, if they are equal or false is the majority, return false
+const majority = (array, callback) => {
+  // object to track
+  const result = {};
+  result.t = array.filter(el => callback(el)).length;
+  result.f = array.length - array.filter(el => callback(el)).length;
+  if (result.t > result.f) {
+    return true;
+  }
+  else if (result.t <= result.f) {
+    return false;
+  }
+};
+
+// Uncomment these to check your work!
+var isOdd = function(num) { return num % 2 === 1; };
+console.log(majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+console.log(majority([2, 3, 4, 5], isOdd)); // should log: false
+
+
+
+// prioritize
+// create a function that accepts an array and callback, callback returns either true or false, go through the array with the callback and return the elements that result true then the rest of the elements
+const prioritize = (array, callback) => {
+  // return an array
+  // filter the ones callback turns out true
+  const result = array.filter(el => callback(el));
+  array.forEach((el) => {
+    if (!result.includes(el)) {
+      result.push(el);
+    }
+  });
+  return result;
+};
+
+// Uncomment these to check your work!
+function startsWithS(str) { return str[0].toLowerCase() === 's'; }
+var tvShows = ['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends']
+console.log(prioritize(tvShows, startsWithS)); // should log: ['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+
+
+
+// countBy
+// create a function that accepts an array and callback and returns an object; go through the array with callback on each element. return value from callback will be saved as a key, and value is the number of times that was returned
+const countBy = (array, callback) => {
+  // object to return
+  const result = array.map(el => callback(el)).reduce((resArr, res) => {
+    if (res in resArr) {
+      resArr[res] += 1;
+    }
+    else {
+      resArr[res] = 1;
+    }
+    return resArr;
+  }, {});
+  return result;
+};
+
+// Uncomment these to check your work!
+function evenOdd(n) {
+  if (n % 2 === 0) return 'even';
+  else return 'odd';
+}
+var nums = [1, 2, 3, 4, 5];
+console.log(countBy(nums, evenOdd)); // should log: { odd: 3, even: 2 }
