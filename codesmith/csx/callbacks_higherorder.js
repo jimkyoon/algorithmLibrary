@@ -4,13 +4,16 @@
 
 // PLURALIZE
 // create a function that takes an array of strings as input and returns a new array with "s" added to end of each string in array// ADD CODE HERE
-function pluralize(array) {
-  const output = [];
-  for (let i = 0; i < array.length; i += 1) {
-    output.push(array[i] + 's');
-  }
-  return output;
-}
+
+const pluralize = array => array.map(el => el + 's');
+
+// function pluralize(array) {
+//   const output = [];
+//   for (let i = 0; i < array.length; i += 1) {
+//     output.push(array[i] + 's');
+//   }
+//   return output;
+// }
 
 // Uncomment these to check your work!
 const animals = ['dog', 'cat', 'tree frog'];
@@ -96,6 +99,27 @@ function reduce(array, callback, initval) {
   }
   return 'First argument should be an array';
 }
+
+// another way
+const reduce = (arr, cb, initial) => {
+  if (Array.isArray(arr)) {
+    let output;
+    if (initial) {
+      output = initial;
+    }
+    else {
+      output = arr[0];
+      arr = arr.slice(1);
+    }
+    arr.forEach(el => {
+      output = cb(output, el);
+    });
+    return output;
+  }
+  else {
+    return 'First argument must be an array!';
+  }
+};
 
 // Uncomment these to check your work!
 var nums = [4, 1, 3];
@@ -218,6 +242,15 @@ const multiMap = (arrayVal, arrayCB) => {
   return result;
 };
 
+// using reduce
+const multiMap = (arrayVal, arrayCB) => {
+  return arrayVal.reduce((acc, el) => {
+    acc[el] = [];
+    arrayCB.forEach(ele => acc[el].push(ele(el)));
+    return acc;
+  }, {});
+};
+
 // Uncomment these to check your work!
 function uppercaser(str) { return str.toUpperCase(); }
 function capitalize(str) { return str[0].toUpperCase() + str.slice(1).toLowerCase(); }
@@ -294,3 +327,47 @@ function evenOdd(n) {
 }
 var nums = [1, 2, 3, 4, 5];
 console.log(countBy(nums, evenOdd)); // should log: { odd: 3, even: 2 }
+
+
+
+// groupBy
+// create a function that takes in an array and callback; should return an object; keys are the callback results; values are the arguments that results the keys
+const groupBy = (array, callback) => {
+  return array.reduce((acc, el) => {
+    const output = callback(el);
+    if (!(output in acc)) {
+      acc[output] = [el];
+    }
+    else {
+      acc[output].push(el);
+    }
+    return acc;
+  }, {});
+};
+
+// Uncomment these to check your work!
+var decimals = [1.3, 2.1, 2.4];
+var floored = function(num) { return Math.floor(num); };
+console.log(groupBy(decimals, floored)); // should log: { 1: [1.3], 2: [2.1, 2.4] }
+
+
+
+// goodKeys
+// create a function that takes in an object and callback; callback will return true or false; return value will be an array of all the keys that return true from callback
+const goodKeys = (object, callback) => {
+  const keys = Object.keys(object);
+  const values = Object.values(object);
+  const truekeys = values.map(el => callback(el));
+  const result = [];
+  for (let i = 0; i < truekeys.length; i += 1) {
+    if (truekeys[i] === true) {
+      result.push(keys[i]);
+    }
+  }
+  return result;
+};
+
+// Uncomment these to check your work!
+var sunny = { mac: 'priest', dennis: 'calculating', charlie: 'birdlaw', dee: 'bird', frank: 'warthog' };
+function startsWithBird(str) { return str.slice(0, 4).toLowerCase() === 'bird'; };
+console.log(goodKeys(sunny, startsWithBird)); // should log: ['charlie', 'dee']
