@@ -106,3 +106,53 @@ const addByTwoOnce = once(function(num) {
 console.log(addByTwoOnce(5));  //should log 7
 console.log(addByTwoOnce(10));  //should log 7
 console.log(addByTwoOnce(9001));  //should log 7
+
+
+
+// after
+// write a function that takes a number of times the callback needs to be called before being executed as the first parameter and callback as the second parameter
+function after(num, callback) {
+  let tries = 1;
+  function doAfterTries(input) {
+    if (tries === num) {
+      const result = callback(input);
+      return result;
+    }
+    else {
+      tries += 1;
+      return undefined;
+    }
+  }
+  return doAfterTries;
+}
+
+const called = function(string) { return('hello ' + string); };
+const afterCalled = after(3, called);
+
+// UNCOMMENT THESE LINES TO TEST YOUR WORK
+console.log(afterCalled('world')); // -> prints undefined
+console.log(afterCalled('world')); // -> prints undefined
+console.log(afterCalled('world')); // -> prints 'hello world'
+
+
+
+// delay
+// create a function that accepts two arguments, callback and wait time; delay should return a function that when invoked, waits for the time determined before executing; look at setTimeout()
+function delay(callback, timer) {
+  function runAfter() {
+    return setTimeout(callback, timer);
+  }
+  return runAfter;
+}
+
+// UNCOMMENT THE CODE BELOW TO TEST DELAY
+let count = 0;
+const delayedFunc = delay(() => count++, 1000);
+delayedFunc();
+console.log(count); 												 // should print '0'
+setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
+
+
+
+// saveOutput
+// 
