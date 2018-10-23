@@ -2,9 +2,8 @@
 
 
 
-// PLURALIZE
+// pluralize
 // create a function that takes an array of strings as input and returns a new array with "s" added to end of each string in array// ADD CODE HERE
-
 const pluralize = array => array.map(el => el + 's');
 
 // function pluralize(array) {
@@ -21,7 +20,7 @@ console.log(pluralize(animals)); // should log: ["dogs", "cats", "tree frogs"]
 
 
 
-// MAP
+// map
 // create a function subtractTwo that accepts a number and returns a number minus 2; then create a function map that takes two inputs, 1. array of numbers and 2. callback function; have map return a new array filled with numbers that are the result of using callback to each element of input array
 function subtractTwo(num) {
   return num - 2;
@@ -70,7 +69,7 @@ console.log(map([3, 4, 5], n => n - 2)); // should log: [1, 2, 3]
 
 
 
-// REDUCE
+// reduce
 // construct your own reduce function that takes in an array, callback, and initial value
 // ADD CODE HERE
 function reduce(array, callback, initval) {
@@ -128,7 +127,7 @@ console.log(reduce(nums, add, 0)); // should log 8
 
 
 
-// INTERSECTION
+// intersection
 // create a function that compares input arrays and returns a new array with elements found in all inputs
 function intersection(array) {
   const result = [];
@@ -168,7 +167,7 @@ console.log(intersection([arr1, arr2, arr3])); // should log: [5, 15]
 
 
 
-// UNION
+// union
 // construct a union function that takes an input of arrays of arrays, compares each, then returns a flat array containing all elements, no duplicates
 function union(array) {
   const result = [];
