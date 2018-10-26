@@ -149,10 +149,132 @@ function delay(callback, timer) {
 let count = 0;
 const delayedFunc = delay(() => count++, 1000);
 delayedFunc();
-console.log(count); 												 // should print '0'
+console.log(count); // should print '0'
 setTimeout(() => console.log(count), 1000); // should print '1' after 1 second
 
 
 
 // saveOutput
-// 
+// create a function that aceepts a function (one argument) and a string (password); return a function that behaves like the passed-in function, except the password string is passed in as an argument; the returned function will return an object with all previously passed in arguments as keys and corresponding outputs as values
+function saveOutput(callback, password) {
+  // const saveWord = password;
+  const saveObj = {};
+  function runFunc(input) {
+    let result = callback(input);
+    // if (input === saveWord) {
+    if (input === password) {
+      return saveObj;
+    }
+    else {
+      saveObj[input] = result;
+      return result;
+    }
+  }
+  return runFunc;
+}
+
+// Uncomment these to check your work!
+const multiplyBy2 = function(num) { return num * 2; };
+const multBy2AndLog = saveOutput(multiplyBy2, 'boo');
+console.log(multBy2AndLog(2)); // should log: 4
+console.log(multBy2AndLog(9)); // should log: 18
+console.log(multBy2AndLog('boo')); // should log: { 2: 4, 9: 18 }
+
+
+
+// cycleIterator
+// create a function that accepst an array and returns a function; return function will take no arguments; when first invoked, return the first element, and so on, till the last element in the array; after, reset it back to the first element
+function cycleIterator(array) {
+  let counter = 0;
+  function cycleFunc() {
+    if (counter < array.length - 1) {
+      let temp = counter;
+      counter += 1;
+      return array[temp];
+    }
+    else {
+      let temp = counter;
+      counter = 0;
+      return array[temp];
+    }
+  }
+  return cycleFunc;
+}
+
+// Uncomment these to check your work!
+const threeDayWeekend = ['Fri', 'Sat', 'Sun'];
+const getDay = cycleIterator(threeDayWeekend);
+console.log(getDay()); // should log: 'Fri'
+console.log(getDay()); // should log: 'Sat'
+console.log(getDay()); // should log: 'Sun'
+console.log(getDay()); // should log: 'Fri'
+
+
+
+// defineFirstArg ***
+// create a function that accepts a function and an argument; also function being passed will accept at least one argument; return function that invokes the passed-in function with passed-in argument as passed-in first argument; additional arguments needed by the passed in fuction will need to be passed into the returned function
+function defineFirstArg(callback, input) {
+  function runFunc(input1, input2) {
+    return callback(input, input1, input2);
+  }
+  return runFunc;
+}
+
+// Uncomment these to check your work!
+const subtract = function(big, small) { return big - small; };
+const subFrom20 = defineFirstArg(subtract, 20);
+console.log(subFrom20(5)); // should log: 15
+
+
+
+// dateStamp ***
+// create a function that accepts a function and returns a function; the returned function will accept wathever arguments the passed in function accepts and return an object with a date key whos value is todays date, represented as a human readable string and an output key that contains the result from invoking the passed in function
+function dateStamp(callback) {
+  const returnObj = {};
+  function runFunc(input) {
+    let currentDate = new Date();
+    returnObj.date = currentDate.toDateString();
+    returnObj.output = callback(input);
+    return returnObj;
+  }
+  return runFunc;
+}
+
+// Uncomment these to check your work!
+const stampedMultBy2 = dateStamp(n => n * 2);
+console.log(stampedMultBy2(4)); // should log: { date: (today's date), output: 8 }
+console.log(stampedMultBy2(6)); // should log: { date: (today's date), output: 12 }
+
+
+
+// censor ***
+// create a function that accepts no arguments; will return a function that will accept either two strings or one string; when two strings are given, the returned function will hold onto the two strings as a pair, for future use; when one string is given, the returned function will return the same string, except all instances of the first string (of saved pair) and will be replaced with the second string (of a saved pair)
+function censor() {
+  const censorObj = {};
+  function runFunc(...arg) {
+    
+    const argArr = [...arg];
+    if (argArr.length > 1) {
+      censorObj[argArr[0]] = argArr[1];
+    }
+    else if (argArr.length === 1) {
+      const newString = argArr[0].split(' ');
+      console.log(newString);
+      const censorArr = Object.keys(censorObj);
+      const returnString = newString.map((el) => {
+        if (censorArr.includes(el)) {
+          el = censorObj[el];
+        }
+        return el;
+      });
+      return returnString.join(' ');
+    }
+  }
+  return runFunc;
+}
+
+// Uncomment these to check your work!
+const changeScene = censor();
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // should log: 'The slow, brown fox jumps over the lazy cats.'
