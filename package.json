@@ -17,11 +17,11 @@
   },
   "homepage": "https://github.com/orenJim/algorithmLibrary#readme",
   "devDependencies": {
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.9.0"
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0"
   },
   "dependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0"
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0"
   }
 }
