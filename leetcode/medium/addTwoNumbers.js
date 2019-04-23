@@ -16,7 +16,7 @@
  */
 
 // first version
-// run: 128ms memory: 38.5mb
+// run: 128ms, memory: 38.5mb
 const addTwoNumbers = (l1, l2) => {
   // have 2 pointers for each linked list
   let pointer1 = l1;

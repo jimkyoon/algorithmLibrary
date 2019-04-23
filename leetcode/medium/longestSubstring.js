@@ -7,7 +7,7 @@
  */
 
 // first finish, using map
-// run: 92ms memory: 38.3mb
+// run: 92ms, memory: 38.3mb
 const lengthOfLongestSubstring = (s) => {
   // have a map to store results
   const memo = new Map();

@@ -3,7 +3,7 @@
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
 // first attempt
-// run: 140ms memory: 15.4mb
+// run: 140ms, memory: 15.4mb
 const twoSum = (nums, target) => {
   // first for loop to grab a number
   for (let i = 0; i < nums.length; i += 1) {
@@ -18,7 +18,7 @@ const twoSum = (nums, target) => {
 };
 
 // best answer found
-// run: 68ms memory: 16mb
+// run: 68ms, memory: 16mb
 const twoSum = (nums, target) => {
   // get out early if length is 2
   if (nums.length === 2) return [0, 1];
@@ -37,7 +37,7 @@ const twoSum = (nums, target) => {
 };
 
 // my next attempt using map
-// run: 60ms memory: 35.2mb
+// run: 60ms, memory: 35.2mb
 const twoSum = (array, target) => {
   // use map to store results
   const memo = new Map();
@@ -55,7 +55,7 @@ const twoSum = (array, target) => {
 
 // wanted to check if map had better performance than standard object
 // nearly same results
-// run: 60ms memory: 35.6mb
+// run: 60ms, memory: 35.6mb
 const twoSum = (array, target) => {
   const memo = {};
   for (let i = 0; i < array.length; i += 1) {
