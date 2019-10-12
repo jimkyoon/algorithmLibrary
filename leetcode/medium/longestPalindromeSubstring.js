@@ -48,3 +48,12 @@ const searchAroundCenter = (s, l, r) => {
   // once the palindrome is found, return the length
   return right - left - 1;
 };
+
+
+
+// using a table
+const longestPalindrome = (s) => {
+  // get out early if string is less than 2 length
+  if (s.length <= 1) return s;
+  
+};
